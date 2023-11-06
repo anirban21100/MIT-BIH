@@ -25,6 +25,7 @@ print(train_X.shape)
 for i in range(187):
     x.append(i)
 
+# The image size was set to be 187 x 187
 train_image = np.zeros((87553, 187, 187))
 test_image = np.zeros((21892, 187, 187))
 
