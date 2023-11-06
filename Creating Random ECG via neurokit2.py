@@ -3,14 +3,6 @@ import neurokit2 as nk
 from matplotlib import pyplot as plt
 import random
 
-# img = cv2.imread(r'C:\Users\user\Desktop\ECG_Project\2022-05-13.jpg')
-# print(img.shape)
-
-
-# cv2.imshow('img', img)
-# key = cv2.waitKey(5000)
-# cv2.destroyAllWindows()
-
 for num in range(1):
     bpm = random.randrange(70,90)
     print(bpm)
