@@ -3,19 +3,19 @@ from matplotlib import pyplot as plt
 import numpy as np
 import cv2
 
-train_df = pd.read_csv(r"C:\Users\user\Desktop\ECG_Project\MIT-BIH\mitbih_csv\mitbih_train.csv", header = None)
-test_df = pd.read_csv(r"C:\Users\user\Desktop\ECG_Project\MIT-BIH\mitbih_csv\mitbih_test.csv", header = None)
+train_df = pd.read_csv(r"mitbih_train.csv", header = None)
+test_df = pd.read_csv(r"mitbih_test.csv", header = None)
 
+# print(train_df.head(3))
+# print(train_df.info())
+# print(train_df[187].value_counts())
 
-print(train_df.head(3))
-print(train_df.info())
-print(train_df[187].value_counts())
 train_X = train_df.drop(187, axis = 1)
 train_Y = train_df[187]
 train_Y = train_Y.to_numpy()
-print(train_Y.dtype)
+# print(train_Y.dtype)
 
-print(test_df.info())
+# print(test_df.info())
 test_X = test_df.drop(187, axis = 1)
 test_Y = test_df[187]
 test_Y = test_Y.to_numpy()
@@ -31,7 +31,7 @@ test_image = np.zeros((21892, 187, 187))
 
 plt.figure()
 
-
+# This part plots the ECG signal, then save it, loads it again to make is a dataset in numpy array
 for i in range(0, 87554):
     if i % 100 == 0:
         print(i)
@@ -44,11 +44,10 @@ for i in range(0, 87554):
     img = img[61:424, 82:574]
     img = cv2.resize(img, (187,187))
 
-    # train_image[i] = img/256.0
+    train_image[i] = img/256.0 # normalize value to make it 0-1
     if i == 0:
         break
     
-
 
 for i in range(0, 21892):
     if i % 100 == 0:
@@ -64,12 +63,9 @@ for i in range(0, 21892):
 
     test_image[i] = img/256.0
 
-
+# Save Dataset
 np.save("train_image.npy", train_image)
-
 np.save("test_image.npy", test_image)
 
-
 np.save("train_label.npy", train_Y)
-
 np.save("test_label.npy", test_Y)
