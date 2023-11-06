@@ -64,6 +64,12 @@ for i in range(0, 21892):
 
     test_image[i] = img/256.0
 
+# Shuffle
+train_sequence = np.arange(train_X.shape[0])
+np.random.shuffle(train_sequence)
+train_X = train_X[train_sequence]
+train_Y = train_Y[train_sequence]
+
 # Save Dataset
 np.save("train_image.npy", train_image)
 np.save("test_image.npy", test_image)
