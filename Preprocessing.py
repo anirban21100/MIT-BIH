@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 import collections
 import random
-from keras.utils.np_utils import to_categorical
+from keras.utils import to_categorical
 
 original_train_image = np.load(r'train_image.npy')
 original_test_image = np.load(r'test_image.npy')
