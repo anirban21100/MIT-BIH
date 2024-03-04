@@ -3,8 +3,8 @@ from matplotlib import pyplot as plt
 import numpy as np
 import cv2
 
-train_df = pd.read_csv(r"mitbih_train.csv", header = None)
-test_df = pd.read_csv(r"mitbih_test.csv", header = None)
+train_df = pd.read_csv(r"/kaggle/input/heartbeat/mitbih_train.csv", header = None)
+test_df = pd.read_csv(r"/kaggle/input/heartbeat/mitbih_test.csv", header = None)
 
 # print(train_df.head(3))
 # print(train_df.info())
